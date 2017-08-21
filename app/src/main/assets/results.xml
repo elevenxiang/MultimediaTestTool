@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Results>
+
+    <Item id="1" class="Playback">
+        <Normal_Playback>false</Normal_Playback>
+        <Headset_Playback>false</Headset_Playback>
+        <A2DP_Playback>false</A2DP_Playback>
+    </Item>
+
+    <Item id="2" class="VoiceCall">
+        <Normal_Call>false</Normal_Call>
+        <Speaker_Call>false</Speaker_Call>
+        <Headset_Call>false</Headset_Call>
+        <BT_Call>false</BT_Call>
+    </Item>
+
+</Results>
