@@ -20,7 +20,7 @@
             android:orientation="horizontal"
             android:id="@+id/playback_layout">
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:id="@+id/playback_icon"
                 android:src="@mipmap/playback_test"/>
@@ -33,10 +33,10 @@
                 android:textAllCaps="false"
                 android:text="@string/playback_title"/>
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:id="@+id/PlaybackDetailBtn"
-                android:text="@string/Detail"/>
+                android:id="@+id/PlaybackDetail"
+                android:background="@mipmap/detail"/>
         </LinearLayout>
 
         <!-- Recording test item layout -->
@@ -48,7 +48,7 @@
 
             <ImageView
                 android:id="@+id/recording_icon"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:src="@mipmap/recording_test" />
 
@@ -61,10 +61,10 @@
                 android:textAllCaps="false"
                 android:text="@string/recording_title"/>
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:id="@+id/RecordingDetailBtn"
-                android:text="@string/Detail"/>
+                android:id="@+id/RecordingDetail"
+                android:background="@mipmap/detail"/>
         </LinearLayout>
 
     </LinearLayout>

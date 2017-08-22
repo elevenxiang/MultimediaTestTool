@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Log.i(TAG, "we have already request permissions.");
 
-        findViewById(R.id.PlaybackDetailBtn).setOnClickListener(new DetailButtonClickListener());
-        findViewById(R.id.RecordingDetailBtn).setOnClickListener(new DetailButtonClickListener());
+        findViewById(R.id.PlaybackDetail).setOnClickListener(new DetailButtonClickListener());
+        findViewById(R.id.RecordingDetail).setOnClickListener(new DetailButtonClickListener());
         findViewById(R.id.Playback_TestTitle).setOnClickListener(this);
         findViewById(R.id.RecordingTestTitle).setOnClickListener(this);
     }

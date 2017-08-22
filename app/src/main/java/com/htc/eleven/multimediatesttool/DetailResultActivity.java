@@ -78,4 +78,13 @@ public class DetailResultActivity extends AppCompatActivity implements View.OnCl
          * */
         resultTextView.setText("");
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        /**
+         * clear content to avoid duplicated showing.
+         * */
+        resultTextView.setText("");
+    }
 }
