@@ -8,24 +8,72 @@
     tools:context="com.htc.eleven.multimediatesttool.PlaybackTestActivity">
 
 
-    <Button
-        android:layout_width="100dp"
+    <LinearLayout
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnPlay"
-        android:textAllCaps="false"
-        android:text="Play"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:orientation="horizontal"
+        android:id="@+id/play_button_layout"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
 
-    <Button
-        android:layout_width="100dp"
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPlay"
+            android:textAllCaps="false"
+            android:text="Play"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnStop"
+            android:textAllCaps="false"
+            android:text="Stop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnStop"
-        android:textAllCaps="false"
-        android:text="Stop"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/play_button_layout"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Question"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb1"
+            android:text="@string/Speaker"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb2"
+            android:text="@string/Headset"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb3"
+            android:text="@string/Bluetooth"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Commit"
+            android:textAllCaps="false"
+            android:id="@+id/commitBtn"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

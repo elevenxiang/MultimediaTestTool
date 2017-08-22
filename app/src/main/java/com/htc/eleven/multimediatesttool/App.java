@@ -11,6 +11,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +20,13 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 /**
  * Created by eleven on 17-8-21.
@@ -50,9 +58,71 @@ public class App extends Application {
         return mApp;
     }
 
+    public void restoreToFile() {
+
+//        File testFile = new File(Environment.getExternalStorageDirectory()+File.separator+"test_output.xml");
+//        try {
+//            testFile.createNewFile();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        Document document = null;
+        try {
+            document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+        } catch (ParserConfigurationException e1) {
+            e1.printStackTrace();
+        }
+
+        Element root = document.createElement("Result");
+
+        for (int i=0; i<mData.size(); i++) {
+
+            Element e = document.createElement("Item");
+            e.setAttribute("id", mData.get(i).getmId());
+            e.setAttribute("class", mData.get(i).getmClass());
+
+            String[] subItems = mData.get(i).getSubItems();
+            for (int j=0; j<subItems.length; j++) {
+                String key = subItems[j];
+                String value = mData.get(i).getmElement().getElementsByTagName((subItems[j])).item(0).getTextContent();
+
+                Element sub = document.createElement(key);
+                sub.setTextContent(value);
+
+                e.appendChild(sub);
+            }
+            root.appendChild(e);
+        }
+
+        document.appendChild(root);
+
+        /**
+         * create another XML file to store new added content and previous content.
+         * */
+        // transfer and create xml file
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer;
+
+        try {
+            transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty("encoding", "UTF-8");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+            transformer.transform(new DOMSource(document), new StreamResult(file));
+
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void onTerminate() {
         super.onTerminate();
+
+        Log.i(TAG, "onTerminate()");
+        restoreToFile();
     }
 
     /**

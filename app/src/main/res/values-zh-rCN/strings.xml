@@ -6,4 +6,11 @@
     <string name="Detail">详情</string>
     <string name="ClearResults">清除测试结果</string>
 
+    <string name="Question">请选择所有通过测试的设备 ?</string>
+    <string name="Speaker">扬声器</string>
+    <string name="Headset">有线耳机</string>
+    <string name="Bluetooth">蓝牙</string>
+    <string name="Commit">提交测试结果</string>
+
+
 </resources>

@@ -5,4 +5,11 @@
     <string name="voice_call_title">VoiceCall Test</string>
     <string name="Detail">Detail</string>
     <string name="ClearResults">ClearResults</string>
+
+    <string name="Question">Please choose all passed devices ?</string>
+    <string name="Speaker">Speaker</string>
+    <string name="Headset">Headset</string>
+    <string name="Bluetooth">A2DP</string>
+    <string name="Commit">Commit Test Result</string>
+
 </resources>

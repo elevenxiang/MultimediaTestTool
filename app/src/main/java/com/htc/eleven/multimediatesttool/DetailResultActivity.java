@@ -53,7 +53,7 @@ public class DetailResultActivity extends AppCompatActivity implements View.OnCl
             resultTextView.append(id + ".    " + strClass + lineBreak);
 
             for (int j=0; j<subItems.length; j++) {
-                resultTextView.append("       " + subItems[j] + ": ====================>[" + e.getElementsByTagName(subItems[j]).item(0).getTextContent() + "]" + lineBreak);
+                resultTextView.append("       " + subItems[j] + ": ==================>[" + e.getElementsByTagName(subItems[j]).item(0).getTextContent() + "]" + lineBreak);
             }
 
             resultTextView.append(lineBreak);

@@ -5,12 +5,18 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.Toast;
+
+import org.w3c.dom.Element;
 
 import java.io.IOException;
 
-public class PlaybackTestActivity extends AppCompatActivity implements View.OnClickListener {
+public class PlaybackTestActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     private final static String mMusicFIle = "test.mp3";
     private AssetFileDescriptor mFd = null;
@@ -20,6 +26,11 @@ public class PlaybackTestActivity extends AppCompatActivity implements View.OnCl
     private MediaPlayer player = null;
     private Boolean mRunning = false;
     private Boolean mPaused = false;
+
+
+    private Button commitAnswer;
+    private CheckBox cb1,cb2,cb3;
+    private static final String TAG = "PlaybackTestActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +47,18 @@ public class PlaybackTestActivity extends AppCompatActivity implements View.OnCl
         mStop = (Button) findViewById(R.id.btnStop);
         mStart.setOnClickListener(this);
         mStop.setOnClickListener(this);
+
+
+        cb1 = (CheckBox) findViewById(R.id.cb1);
+        cb2 = (CheckBox) findViewById(R.id.cb2);
+        cb3 = (CheckBox) findViewById(R.id.cb3);
+
+        cb1.setOnCheckedChangeListener(this);
+        cb2.setOnCheckedChangeListener(this);
+        cb3.setOnCheckedChangeListener(this);
+
+        commitAnswer = (Button) findViewById(R.id.commitBtn);
+        commitAnswer.setOnClickListener(this);
     }
 
     @Override
@@ -63,9 +86,42 @@ public class PlaybackTestActivity extends AppCompatActivity implements View.OnCl
                 mRunning = false;
                 mPaused = false;
                 break;
+
+            case R.id.commitBtn:
+                commitResult();
+                mStop.callOnClick();
+
+                /**
+                 * shall we just exit test UI when after committing result ?
+                 * */
+                finish();
+                break;
         }
     }
 
+    private void commitResult() {
+
+        Element e = App.getApp().getmData().get(CellData.Playback_Test_Id).getmElement();
+        String[] subItems = App.getApp().getmData().get(CellData.Playback_Test_Id).getSubItems();
+
+        String data = "Failed";
+        for (int i=0; i<subItems.length; i++) {
+            switch (i) {
+                case 0:
+                    data = cb1.isChecked()?"Passed":"Failed";
+                    break;
+                case 1:
+                    data = cb2.isChecked()?"Passed":"Failed";
+                    break;
+                case 2:
+                    data = cb3.isChecked()?"Passed":"Failed";
+                    break;
+            }
+            e.getElementsByTagName(subItems[i]).item(0).setTextContent(data);
+
+            Toast.makeText(PlaybackTestActivity.this,"提交测试成功 !", Toast.LENGTH_SHORT).show();
+        }
+    }
     public void preparePlay(){
 
         String path = Environment.getExternalStorageDirectory() + "/Music/test.mp3";
@@ -109,9 +165,10 @@ public class PlaybackTestActivity extends AppCompatActivity implements View.OnCl
     protected void onStop() {
         super.onStop();
 
-        /**
-         * simulate click stop button to force stop, when exit playing test UI.
-         * */
-        mStop.callOnClick();
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        System.out.println(TAG+compoundButton.isChecked());
     }
 }
