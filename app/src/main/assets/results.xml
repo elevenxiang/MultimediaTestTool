@@ -8,7 +8,7 @@
     </Item>
 
     <Item id="2" class="VoiceCall">
-        <Normal_Call>false</Normal_Call>
+        <Normal_Call>true</Normal_Call>
         <Speaker_Call>false</Speaker_Call>
         <Headset_Call>false</Headset_Call>
         <BT_Call>false</BT_Call>

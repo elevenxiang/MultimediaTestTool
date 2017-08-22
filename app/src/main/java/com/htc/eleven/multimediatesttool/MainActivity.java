@@ -45,14 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i(TAG, MainActivity.this + ", Here we go !");
 
         /**
-         * show default test result configuration xml file path.
-         * */
-        Log.i(TAG, App.getApp().getTestResultFile());
-
-        /**
          * request permission.
          * */
         requestPermissions(mPermissions,mRequestCode);
+
+        Log.i(TAG, "we have already request permissions.");
 
         findViewById(R.id.DetailBtn).setOnClickListener(new DetailButtonClickListener());
         findViewById(R.id.TestTitle).setOnClickListener(this);
@@ -69,6 +66,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
+        Log.i(TAG, "onRequestPermissionsResult Successfully !");
+
+        if(!App.getApp().loadResultXMLFile()) {
+            finish();
+        }
+
+        App.getApp().parserXMLFile();
     }
 
     @Override
