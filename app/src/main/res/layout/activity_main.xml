@@ -21,23 +21,51 @@
             android:id="@+id/playback_layout">
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/playback_icon"
                 android:src="@mipmap/playback_test"/>
             <TextView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/TestTitle"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:id="@+id/Playback_TestTitle"
                 android:textAllCaps="false"
                 android:text="@string/playback_title"/>
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/DetailBtn"
+                android:layout_height="match_parent"
+                android:id="@+id/PlaybackDetailBtn"
                 android:text="@string/Detail"/>
         </LinearLayout>
 
+        <!-- Recording test item layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/recording_layout">
+
+            <ImageView
+                android:id="@+id/recording_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/recording_test" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:id="@+id/RecordingTestTitle"
+                android:textAllCaps="false"
+                android:text="@string/recording_title"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/RecordingDetailBtn"
+                android:text="@string/Detail"/>
+        </LinearLayout>
 
     </LinearLayout>
 

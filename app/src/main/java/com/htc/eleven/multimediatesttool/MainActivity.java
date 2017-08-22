@@ -51,8 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Log.i(TAG, "we have already request permissions.");
 
-        findViewById(R.id.DetailBtn).setOnClickListener(new DetailButtonClickListener());
-        findViewById(R.id.TestTitle).setOnClickListener(this);
+        findViewById(R.id.PlaybackDetailBtn).setOnClickListener(new DetailButtonClickListener());
+        findViewById(R.id.RecordingDetailBtn).setOnClickListener(new DetailButtonClickListener());
+        findViewById(R.id.Playback_TestTitle).setOnClickListener(this);
+        findViewById(R.id.RecordingTestTitle).setOnClickListener(this);
     }
 
     @Override
@@ -77,9 +79,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        Intent intent;
         switch (view.getId()) {
-            case R.id.TestTitle:
-                Intent intent = new Intent(MainActivity.this,PlaybackTestActivity.class);
+            case R.id.Playback_TestTitle:
+                intent = new Intent(MainActivity.this,PlaybackTestActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.RecordingTestTitle:
+                intent = new Intent(MainActivity.this,RecordingTestActivity.class);
                 startActivity(intent);
                 break;
         }

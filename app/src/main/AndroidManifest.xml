@@ -22,14 +22,13 @@
         </activity>
         <activity
             android:name=".DetailResultActivity"
-            android:label="DetailResultActivity">
-
-        </activity>
-
-        <activity android:name=".PlaybackTestActivity"
-            android:label="PlaybackTestActivity">
-
-        </activity>
+            android:label="DetailResultActivity"></activity>
+        <activity
+            android:name=".PlaybackTestActivity"
+            android:label="PlaybackTestActivity"></activity>
+        <activity
+            android:name=".RecordingTestActivity"
+            android:label="RecordingTestActivity"></activity>
     </application>
 
 </manifest>
