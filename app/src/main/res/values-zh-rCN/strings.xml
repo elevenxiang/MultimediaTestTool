@@ -2,6 +2,7 @@
     <string name="app_name">多媒体测试工具</string>
     <string name="playback_title">播放测试</string>
     <string name="recording_title">录音测试</string>
+    <string name="voice_call_title">通话测试</string>
     <string name="Detail">详情</string>
     <string name="ClearResults">清除测试结果</string>
 

@@ -2,6 +2,7 @@
     <string name="app_name">MultimediaTestTool</string>
     <string name="playback_title">Playback Test</string>
     <string name="recording_title">Recording Test</string>
+    <string name="voice_call_title">VoiceCall Test</string>
     <string name="Detail">Detail</string>
     <string name="ClearResults">ClearResults</string>
 </resources>

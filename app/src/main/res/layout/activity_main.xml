@@ -67,6 +67,35 @@
                 android:background="@mipmap/detail"/>
         </LinearLayout>
 
+
+        <!-- VoiceCall test item layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/voice_call_layout">
+
+            <ImageView
+                android:id="@+id/voice_call_icon"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_settings_voice_calls" />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:id="@+id/VoiceCallTitle"
+                android:textAllCaps="false"
+                android:text="@string/voice_call_title"/>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:id="@+id/VoiceCallDetail"
+                android:background="@mipmap/detail"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

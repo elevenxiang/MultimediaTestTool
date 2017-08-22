@@ -53,8 +53,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.PlaybackDetail).setOnClickListener(new DetailButtonClickListener());
         findViewById(R.id.RecordingDetail).setOnClickListener(new DetailButtonClickListener());
+        findViewById(R.id.VoiceCallDetail).setOnClickListener(new DetailButtonClickListener());
         findViewById(R.id.Playback_TestTitle).setOnClickListener(this);
         findViewById(R.id.RecordingTestTitle).setOnClickListener(this);
+        findViewById(R.id.VoiceCallTitle).setOnClickListener(this);
     }
 
     @Override
@@ -89,6 +91,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this,RecordingTestActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.VoiceCallTitle:
+                intent = new Intent(MainActivity.this,VoiceCallTestActivity.class);
+                startActivity(intent);
+                break;
+
         }
 
     }
