@@ -20,8 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailResultActivity" />
-        <activity android:name=".PlaybackTestActivity"></activity>
+        <activity
+            android:name=".DetailResultActivity"
+            android:label="DetailResultActivity">
+
+        </activity>
+
+        <activity android:name=".PlaybackTestActivity"
+            android:label="PlaybackTestActivity">
+
+        </activity>
     </application>
 
 </manifest>

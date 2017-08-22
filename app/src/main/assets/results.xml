@@ -7,7 +7,12 @@
         <A2DP_Playback>false</A2DP_Playback>
     </Item>
 
-    <Item id="2" class="VoiceCall">
+    <Item id="2" class="Recording">
+        <Normal_Recording>false</Normal_Recording>
+        <Headset_Recording>false</Headset_Recording>
+    </Item>
+
+    <Item id="3" class="VoiceCall">
         <Normal_Call>true</Normal_Call>
         <Speaker_Call>false</Speaker_Call>
         <Headset_Call>false</Headset_Call>

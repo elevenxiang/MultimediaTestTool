@@ -9,11 +9,12 @@ import org.w3c.dom.Element;
 public class CellData {
 
     public static final int Playback_Test_Id = 0;
-    public static final int VoiceCall_Test_Id = Playback_Test_Id + 1;
+    public static final int Recording_Test_Id = Playback_Test_Id + 1;;
+    public static final int VoiceCall_Test_Id = Recording_Test_Id + 1;
     public static final int Numbers = VoiceCall_Test_Id +1;
 
 
-//    public static final String testItems[] = {"Playback", "VoiceCall"};
+//    public static final String testItems[] = {"Playback", "Recording", VoiceCall"};
 
     private Element mElement;
     private String mId;
@@ -33,8 +34,12 @@ public class CellData {
                 subItems = new String[]{"Normal_Playback", "Headset_Playback", "A2DP_Playback"};
                 break;
             case "2":
+                subItems = new String[]{"Normal_Recording", "Headset_Recording"};
+                break;
+            case "3":
                 subItems = new String[]{"Normal_Call", "Speaker_Call", "Headset_Call", "BT_Call"};
                 break;
+
         }
     }
 

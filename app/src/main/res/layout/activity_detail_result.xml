@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/clearDataBtn"
+            android:textAllCaps="false"
             android:text="@string/ClearResults"/>
         <TextView
             android:layout_width="match_parent"
