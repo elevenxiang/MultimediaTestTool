@@ -1,5 +1,6 @@
 package com.htc.eleven.multimediatesttool;
 
+import android.media.AudioFormat;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -42,6 +43,8 @@ public class RecordingTestActivity extends AppCompatActivity implements View.OnC
 
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+        mediaRecorder.setAudioSamplingRate(48000);
+        mediaRecorder.setAudioChannels(2);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
         mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
         mediaRecorder.setOutputFile(filePath);
