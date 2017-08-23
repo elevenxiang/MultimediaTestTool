@@ -29,4 +29,7 @@
     <string name="Receiver">Earpiece</string>
     <string name="BTSCO">BT SCO</string>
     <string name="testTips">Please switch output devices during phone call</string>
+
+    <string name="voip_call_title">Voip Test</string>
+    <string name="hint_for_voip_call">Please input contact name</string>
 </resources>

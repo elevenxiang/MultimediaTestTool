@@ -19,4 +19,11 @@
         <BT_Call>Failed</BT_Call>
     </Item>
 
+    <Item id="4" class="VoipCall">
+        <Normal_Call>Failed</Normal_Call>
+        <Speaker_Call>Failed</Speaker_Call>
+        <Headset_Call>Failed</Headset_Call>
+        <BT_Call>Failed</BT_Call>
+    </Item>
+
 </Results>
