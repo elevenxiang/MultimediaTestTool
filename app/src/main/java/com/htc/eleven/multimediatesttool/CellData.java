@@ -14,7 +14,7 @@ public class CellData {
     public static final int Numbers = VoiceCall_Test_Id +1;
 
 
-//    public static final String testItems[] = {"Playback", "Recording", VoiceCall"};
+    public static final String testItems[] = {"Playback", "Recording", "VoiceCall"};
 
     private Element mElement;
     private String mId;

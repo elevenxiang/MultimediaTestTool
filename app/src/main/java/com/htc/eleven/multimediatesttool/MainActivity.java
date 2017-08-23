@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "eleven-MainActivity";
+    public static final String KEY = "Category";
 
     /**
      * permission strings for read/write external storage.
@@ -31,7 +32,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(MainActivity.this, DetailResultActivity.class);
+            Intent intent = new Intent(MainActivity.this,DetailResultActivity.class);
+            switch (view.getId()) {
+                case R.id.PlaybackDetail:
+                    intent.putExtra(KEY, CellData.testItems[CellData.Playback_Test_Id]);
+                    break;
+                case R.id.RecordingDetail:
+                    intent.putExtra(KEY, CellData.testItems[CellData.Recording_Test_Id]);
+                    break;
+                case R.id.VoiceCallDetail:
+                    intent.putExtra(KEY, CellData.testItems[CellData.VoiceCall_Test_Id]);
+                    break;
+
+            }
+
             startActivity(intent);
         }
     }
