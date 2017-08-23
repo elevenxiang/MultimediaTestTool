@@ -89,7 +89,8 @@ public class PlaybackTestActivity extends AppCompatActivity implements View.OnCl
 
             case R.id.commitBtn:
                 commitResult();
-                mStop.callOnClick();
+                if(mRunning||mPaused)
+                    mStop.callOnClick();
 
                 /**
                  * shall we just exit test UI when after committing result ?

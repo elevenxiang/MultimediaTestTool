@@ -13,7 +13,7 @@
     </Item>
 
     <Item id="3" class="VoiceCall">
-        <Normal_Call>Passed</Normal_Call>
+        <Normal_Call>Failed</Normal_Call>
         <Speaker_Call>Failed</Speaker_Call>
         <Headset_Call>Failed</Headset_Call>
         <BT_Call>Failed</BT_Call>
