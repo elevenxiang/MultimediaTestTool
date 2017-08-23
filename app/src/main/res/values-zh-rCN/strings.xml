@@ -22,4 +22,11 @@
     <string name="onRecording"> --- 录音中 --- </string>
     <string name="onReady"> --- 准备好了 --- </string>
     <string name="onPlaying"> --- 正在播放录音 --- </string>
+
+    <string name="hint_for_call_number">请在此输入电话号码 !</string>
+    <string name="dail_out">拨打电话</string>
+    <string name="Receiver">听筒</string>
+    <string name="BTSCO">蓝牙电话</string>
+    <string name="testTips">测试的时候,请在通话过程中切换各种外设!</string>
+
 </resources>

@@ -6,4 +6,79 @@
     android:layout_height="match_parent"
     tools:context="com.htc.eleven.multimediatesttool.VoiceCallTestActivity">
 
+    <EditText
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/hint_for_call_number"
+        android:id="@+id/phone_number_edit"
+        android:inputType="phone"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/testTips"
+        android:textColor="@color/red"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:id="@+id/tips"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_edit"/>
+
+    <Button
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="@string/dail_out"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/tips"
+        android:layout_marginTop="100dp"
+        android:id="@+id/DialOutBtn"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/choice_layout"
+        app:layout_constraintTop_toBottomOf="@+id/DialOutBtn"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="@string/Question"/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb1"
+            android:text="@string/Receiver"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb2"
+            android:text="@string/Speaker"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb3"
+            android:text="@string/Headset"/>
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb4"
+            android:text="@string/BTSCO"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Commit"
+            android:textAllCaps="false"
+            android:id="@+id/commitBtn"/>
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

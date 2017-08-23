@@ -22,4 +22,11 @@
     <string name="onRecording"> --- Under Recording --- </string>
     <string name="onReady"> --- Ready --- </string>
     <string name="onPlaying"> --- Under Playing Recording Voice --- </string>
+
+
+    <string name="hint_for_call_number">please input phone number here !</string>
+    <string name="dail_out">Dial Out</string>
+    <string name="Receiver">Earpiece</string>
+    <string name="BTSCO">BT SCO</string>
+    <string name="testTips">Please switch output devices during phone call</string>
 </resources>
