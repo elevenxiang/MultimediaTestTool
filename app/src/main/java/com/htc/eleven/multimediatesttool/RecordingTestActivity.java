@@ -1,9 +1,7 @@
 package com.htc.eleven.multimediatesttool;
 
-import android.media.AudioFormat;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
