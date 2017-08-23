@@ -6,10 +6,20 @@
     <string name="Detail">Detail</string>
     <string name="ClearResults">ClearResults</string>
 
-    <string name="Question">Please choose all passed devices ?</string>
+    <string name="Question">Please Choose All Passed Devices ?</string>
     <string name="Speaker">Speaker</string>
     <string name="Headset">Headset</string>
     <string name="Bluetooth">A2DP</string>
     <string name="Commit">Commit Test Result</string>
 
+    <string name="Question_Recording">Please Choose All Passed Devices ?</string>
+    <string name="Start_Recording">Start Recording</string>
+    <string name="Stop_Recording">Stop Recording</string>
+    <string name="Start_play_Recording">Start Play Recording</string>
+    <string name="Stop_play_recording">Stop Play Recording</string>
+    <string name="BuiltIn_Mic">BuiltIn Mics</string>
+    <string name="Headset_Mic">Headset Mic</string>
+    <string name="onRecording"> --- Under Recording --- </string>
+    <string name="onReady"> --- Ready --- </string>
+    <string name="onPlaying"> --- Under Playing Recording Voice --- </string>
 </resources>

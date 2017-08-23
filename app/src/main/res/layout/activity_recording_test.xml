@@ -6,4 +6,72 @@
     android:layout_height="match_parent"
     tools:context="com.htc.eleven.multimediatesttool.RecordingTestActivity">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/showStatus"
+        android:text="@string/onReady"
+        android:textColor="@color/red_normal"
+        android:gravity="center_horizontal|center_vertical"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/button_layout"
+        app:layout_constraintTop_toBottomOf="@+id/showStatus">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/RecordingBtn"
+            android:text="@string/Start_Recording"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/PlayingBtn"
+            android:text="@string/Start_play_Recording"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/result_layout"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/button_layout"
+        android:layout_marginTop="100dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Question_Recording"/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb1"
+            android:text="@string/BuiltIn_Mic"/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cb2"
+            android:text="@string/Headset_Mic"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@id/commitBtn"
+            android:text="@string/Commit"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
