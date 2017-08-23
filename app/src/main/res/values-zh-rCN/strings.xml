@@ -12,5 +12,14 @@
     <string name="Bluetooth">蓝牙</string>
     <string name="Commit">提交测试结果</string>
 
-
+    <string name="Question_Recording">请选择下面所有通过测试的设备 ?</string>
+    <string name="Start_Recording">开始录音</string>
+    <string name="Stop_Recording">停止录音</string>
+    <string name="Start_play_Recording">播放录音</string>
+    <string name="Stop_play_recording">停止播放录音</string>
+    <string name="BuiltIn_Mic">本机麦克</string>
+    <string name="Headset_Mic">耳机麦克</string>
+    <string name="onRecording"> --- 录音中 --- </string>
+    <string name="onReady"> --- 准备好了 --- </string>
+    <string name="onPlaying"> --- 正在播放录音 --- </string>
 </resources>
