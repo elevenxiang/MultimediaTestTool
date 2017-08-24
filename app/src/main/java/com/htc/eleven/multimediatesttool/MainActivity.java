@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +23,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * */
     private static final int mRequestCode = 1;
     private static final int mRequestSuccessfully = 0;
+
+    /**
+     * for show string from native call.
+     * */
+//    private TextView ndkStringTextView;
 
     /**
      * Common button listener for each test item detail button.
@@ -51,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    // Used to load the 'native-lib' library on application startup.
+    static {
+        System.loadLibrary("native-lib");
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +84,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.RecordingTestTitle).setOnClickListener(this);
         findViewById(R.id.VoiceCallTitle).setOnClickListener(this);
         findViewById(R.id.VoipCallTitle).setOnClickListener(this);
+
+        /**
+         *  add for ndk support.
+         * */
+//        ndkStringTextView = (TextView) findViewById(R.id.ndk_tv);
+//        ndkStringTextView.setOnClickListener(this);
     }
 
     @Override
@@ -116,6 +132,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this,VoipCallActivity.class);
                 startActivity(intent);
                 break;
+
+//            case R.id.ndk_tv:
+//                intent = new Intent(MainActivity.this,NDKDemoActivity.class);
+//                startActivity(intent);
+//                break;
 
         }
 

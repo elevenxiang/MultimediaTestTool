@@ -124,6 +124,24 @@
                 android:id="@+id/VoipCallDetail"
                 android:background="@mipmap/detail"/>
         </LinearLayout>
+
+        <!-- NDK test item layout -->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:id="@+id/ndk_layout">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/ndk_tv"-->
+                <!--android:gravity="center_horizontal|center_vertical"-->
+                <!--android:textColor="@color/red"-->
+                <!--android:text="Show NDK returned String"-->
+                <!--/>-->
+
+        <!--</LinearLayout>-->
     </LinearLayout>
 
 </ScrollView>

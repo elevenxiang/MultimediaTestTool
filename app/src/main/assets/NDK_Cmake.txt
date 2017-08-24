@@ -1,0 +1,54 @@
+1. install NDK, CMake, LLDB components.(only once for all projects with Native code)
+2. Create New Project and choose "Include C++ Support" checkbox.
+    after Step 2, (1) it will create "cpp" folder and on cpp file under "app/src/main/" folder.
+                  (2) it will create CMakeLists.txt under "app/" folder.
+                  (3) it will add below configurations in build.grade(Module:app)
+                                externalNativeBuild {
+                                    cmake {
+                                        cppFlags ""
+                                    }
+                                }
+                                externalNativeBuild {
+                                    cmake {
+                                        path "CMakeLists.txt"
+                                    }
+                                }
+3. make sure local.properties file include below path:
+    ndk.dir=/home/eleven/Android/Sdk/ndk-bundle
+
+#####
+/**
+*  if you want to enable NDK in a old project, which didn't choose support C++ when create, you need do above 3 items
+   and  also do below actions:
+
+    1. configuration in build.gradle(Module:app)
+       sourceSets {
+           main {
+               jni.srcDirs = ['src/main/cpp/']
+           }
+       }
+    2. build to generate .h file & ad cpp file, and its build rule.
+        (1) cd "app/src/main/java" folder.
+        (2) javah -jni com.htc.eleven.multimediatesttool.NDKDemoActivity
+        (3) cp com_htc_eleven_multimediatesttool_NDKDemoActivity.h to "app/src/main/cpp" folder.
+        (4) touch to create native.cpp, include below .h file and implements code interfaces.
+        (5) add build rules in CMakeLists.txt
+
+    3. if so we want to build is dependent on other binary so lib.
+        (1) add build dependency in build.gradle(Module:app)
+
+            sourceSets {
+                main {
+                    jniLibs.srcDirs = ['src/main/jniLibs']
+                }
+            }
+        (2)  add dependency in CMakeLists.txt. // for example, we need libbdEASRAndroid.so.
+            target_link_libraries(wakeup
+                                  bdEASRAndroid
+                                  ${log-lib}
+                                  )
+
+            set(libs_include_DIR src/main/cpp)
+            set(libs_DIR src/main/jniLibs/${ANDROID_ABI})
+*/
+#####
