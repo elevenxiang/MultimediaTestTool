@@ -79,11 +79,13 @@ public class PlaybackTestActivity extends AppCompatActivity implements View.OnCl
                 }
                 break;
             case R.id.btnStop:
-                player.stop();
-                player.release();
-                player = null;
-                mRunning = false;
-                mPaused = false;
+                if(mRunning) {
+                    player.stop();
+                    player.release();
+                    player = null;
+                    mRunning = false;
+                    mPaused = false;
+                }
                 break;
 
             case R.id.commitBtn:

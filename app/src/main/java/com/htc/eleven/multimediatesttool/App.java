@@ -11,6 +11,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -108,13 +109,28 @@ public class App extends Application {
             transformer.setOutputProperty("encoding", "UTF-8");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
+            /**
+             * truncate file to size 0.
+             * */
+            new FileOutputStream(file).getChannel().truncate(0).close();
+
             transformer.transform(new DOMSource(document), new StreamResult(file));
 
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
         } catch (TransformerException e) {
             e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        /**
+         * clear mData.
+         * */
+
+        mData.clear();
     }
     @Override
     public void onTerminate() {
