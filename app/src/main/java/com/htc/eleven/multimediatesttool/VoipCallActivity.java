@@ -1,6 +1,8 @@
 package com.htc.eleven.multimediatesttool;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,7 +55,13 @@ public class VoipCallActivity extends AppCompatActivity implements View.OnClickL
     private void dialOut() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("skype:" + voipName.getText()));
-        startActivity(intent);
+
+
+        if (intent.resolveActivity(getPackageManager()) == null) {
+            Toast.makeText(VoipCallActivity.this, "Please install Skype firstly !", Toast.LENGTH_LONG).show();
+            finish();
+        } else
+            startActivity(intent);
 
 
 //        Toast.makeText(VoipCallActivity.this, voipName.getText(), Toast.LENGTH_LONG).show();
