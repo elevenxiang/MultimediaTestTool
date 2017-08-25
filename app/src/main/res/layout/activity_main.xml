@@ -23,7 +23,7 @@
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:id="@+id/playback_icon"
-                android:src="@mipmap/playback_test"/>
+                android:src="@mipmap/ic_action_music_1"/>
             <TextView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                 android:id="@+id/recording_icon"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:src="@mipmap/recording_test" />
+                android:src="@mipmap/ic_action_mic" />
 
             <TextView
                 android:layout_weight="1"
@@ -79,7 +79,7 @@
                 android:id="@+id/voice_call_icon"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_settings_voice_calls" />
+                android:src="@mipmap/ic_action_phone_start" />
 
             <TextView
                 android:layout_weight="1"
