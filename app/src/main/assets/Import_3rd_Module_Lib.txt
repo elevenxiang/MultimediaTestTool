@@ -4,7 +4,7 @@ Steps to use 3rd modules and libs:
 2. "File" -> "New" -> "Import Module"
     (1) choose the "library" folder.
     (2) rename lib/module folder name.
-3. modify "build.gradle" new created folder at step (2), to modify sdk version information to be the same as current project.
+3. modify "build.gradle" file in new created folder at step (2), to modify sdk version information to be the same as current project.
 
         compileSdkVersion 26
         buildToolsVersion "26.0.1"
