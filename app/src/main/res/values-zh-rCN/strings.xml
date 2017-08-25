@@ -32,4 +32,6 @@
     <string name="voip_call_title">网络电话测试</string>
     <string name="hint_for_voip_call">请输入用户名</string>
 
+    <string name="video_test_title">视频播放测试</string>
+
 </resources>

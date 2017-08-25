@@ -32,4 +32,6 @@
 
     <string name="voip_call_title">Voip Test</string>
     <string name="hint_for_voip_call">Please input contact name</string>
+
+    <string name="video_test_title">Video playback test</string>
 </resources>
