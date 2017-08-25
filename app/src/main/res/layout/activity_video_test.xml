@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.htc.eleven.multimediatesttool.VideoTestActivity">
     
-    <ListView
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/video_list">
 
-    </ListView>
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
 
 </android.support.constraint.ConstraintLayout>

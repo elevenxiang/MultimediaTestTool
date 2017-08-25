@@ -1,0 +1,19 @@
+Steps to use 3rd modules and libs:
+
+1. use zip download or git clone to download 3rd module source code from Github.
+2. "File" -> "New" -> "Import Module"
+    (1) choose the "library" folder.
+    (2) rename lib/module folder name.
+3. modify "build.gradle" new created folder at step (2), to modify sdk version information to be the same as current project.
+
+        compileSdkVersion 26
+        buildToolsVersion "26.0.1"
+
+	    defaultConfig {
+        applicationId "com.htc.eleven.multimediatesttool"
+        minSdkVersion 24
+        targetSdkVersion 26
+4. right click on current "app" -> "Open Module Settings" -> choose tab "Dependencies" -> click "+" -> "3 Module Dependency" -> choose added module
+   just right now. and it will modify build.gradle and settings.gradle to include support of 3rd module.
+
+5. re-build project, and fix build break.
