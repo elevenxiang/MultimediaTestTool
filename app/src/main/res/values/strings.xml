@@ -34,4 +34,8 @@
     <string name="hint_for_voip_call">Please input contact name</string>
 
     <string name="video_test_title">Video playback test</string>
+    <string name="video_test_dialog">Video Test Confirm</string>
+    <string name="video_test_message">Vdieo Playback ok ?</string>
+    <string name="video_yes">Yes</string>
+    <string name="video_no">No</string>
 </resources>

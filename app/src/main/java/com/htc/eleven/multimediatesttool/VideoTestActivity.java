@@ -1,25 +1,30 @@
 package com.htc.eleven.multimediatesttool;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
+import org.w3c.dom.Element;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoTestActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class VideoTestActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     /**
      * Uri for access media database.
@@ -37,6 +42,7 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
     List<String>  mData ;
     ArrayAdapter mAdapter;
 
+    private Button commitBtn;
     private void refresh() {
 
         Cursor list = getContentResolver().query(mVideoUri,mColumns,"duration>10000", null, null);
@@ -65,6 +71,8 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_test);
 
+        commitBtn = (Button) findViewById(R.id.commitBtn);
+        commitBtn.setOnClickListener(this);
         video_list = (PullToRefreshListView) findViewById(R.id.video_list);
 
         mData = new ArrayList<String>();
@@ -121,5 +129,52 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
         intent.setDataAndType(Uri.parse(data), "video/mp4");
 
         startActivity(intent);
+    }
+
+    private AlertDialog result;
+
+    private DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            switch (i) {
+                case AlertDialog.BUTTON_POSITIVE:
+                    commitResult(true);
+                    break;
+                case AlertDialog.BUTTON_NEGATIVE:
+                    commitResult(false);
+                    break;
+            }
+        }
+    };
+
+    private void commitResult( boolean result) {
+
+        Element e = App.getApp().getmData().get(CellData.Video_Test_Id).getmElement();
+        String[] subItems = App.getApp().getmData().get(CellData.Video_Test_Id).getSubItems();
+
+        String data = (result == true)?"Passed":"Failed";
+        for (int i=0; i<subItems.length; i++) {
+            e.getElementsByTagName(subItems[i]).item(0).setTextContent(data);
+        }
+
+        Toast.makeText(VideoTestActivity.this,"提交测试成功 !", Toast.LENGTH_SHORT).show();
+
+        finish();
+    }
+    private void showResult() {
+        result = new AlertDialog.Builder(this).create();
+        result.setTitle(getResources().getString(R.string.video_test_dialog));
+        result.setMessage(getResources().getString(R.string.video_test_message));
+        result.setButton(AlertDialog.BUTTON_NEGATIVE,getResources().getString(R.string.video_no), listener);
+        result.setButton(AlertDialog.BUTTON_POSITIVE,getResources().getString(R.string.video_yes),listener);
+        result.show();
+    }
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.commitBtn:
+                showResult();
+                break;
+        }
     }
 }
