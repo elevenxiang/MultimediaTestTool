@@ -89,7 +89,7 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
                     protected Void doInBackground(Void... voids) {
 
                         try {
-                            Thread.sleep(3000);
+                            Thread.sleep(100);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
