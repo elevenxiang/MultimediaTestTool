@@ -1,11 +1,9 @@
 package com.htc.eleven.multimediatesttool;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -60,6 +58,26 @@ public class VoipCallActivity extends AppCompatActivity implements View.OnClickL
         if (intent.resolveActivity(getPackageManager()) == null) {
             Toast.makeText(VoipCallActivity.this, "Please install Skype firstly !", Toast.LENGTH_LONG).show();
             finish();
+
+            //TODO, install apk in code, need FileProvider to share file between Applications.
+            /**
+             * install the Skype apk.
+             *
+            {
+                String installFile = Environment.getExternalStorageDirectory() + File.separator + "Skype.apk";
+                String command = "chmod 777 " + installFile;
+                System.out.println(command);
+                try {
+                    Runtime.getRuntime().exec(command);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Intent intent_install = new Intent(Intent.ACTION_VIEW);
+                intent_install.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent_install.setDataAndType(Uri.parse("file://"+installFile),"application/vnd.android.package-archive");
+                startActivity(intent_install);
+            }
+             */
         } else
             startActivity(intent);
 
