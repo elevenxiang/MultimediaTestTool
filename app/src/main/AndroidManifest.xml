@@ -36,7 +36,8 @@
         <activity
             android:name=".VoipCallActivity"
             android:label="VoipCallActivity" />
-        <activity android:name=".NDKDemoActivity"></activity>
+        <activity android:name=".NDKDemoActivity" />
+        <activity android:name=".VideoTestActivity"></activity>
     </application>
 
 </manifest>

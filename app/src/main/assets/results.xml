@@ -26,4 +26,8 @@
         <BT_Call>Failed</BT_Call>
     </Item>
 
+    <Item id="5" class="Video">
+        <Video_Playback>Failed</Video_Playback>
+    </Item>
+
 </Results>

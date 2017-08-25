@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.VoipCallDetail:
                     intent.putExtra(KEY, CellData.testItems[CellData.VoipCall_Test_Id]);
                     break;
+                case R.id.VideoTestDetail:
+                    intent.putExtra(KEY, CellData.testItems[CellData.Video_Test_Id]);
+                    break;
 
             }
 
@@ -80,10 +83,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.RecordingDetail).setOnClickListener(new DetailButtonClickListener());
         findViewById(R.id.VoiceCallDetail).setOnClickListener(new DetailButtonClickListener());
         findViewById(R.id.VoipCallDetail).setOnClickListener(new DetailButtonClickListener());
+        findViewById(R.id.VideoTestDetail).setOnClickListener(new DetailButtonClickListener());
         findViewById(R.id.Playback_TestTitle).setOnClickListener(this);
         findViewById(R.id.RecordingTestTitle).setOnClickListener(this);
         findViewById(R.id.VoiceCallTitle).setOnClickListener(this);
         findViewById(R.id.VoipCallTitle).setOnClickListener(this);
+        findViewById(R.id.VideoTestTitle).setOnClickListener(this);
 
         /**
          *  add for ndk support.
@@ -130,6 +135,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.VoipCallTitle:
                 intent = new Intent(MainActivity.this,VoipCallActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.VideoTestTitle:
+                intent = new Intent(MainActivity.this,VideoTestActivity.class);
                 startActivity(intent);
                 break;
 

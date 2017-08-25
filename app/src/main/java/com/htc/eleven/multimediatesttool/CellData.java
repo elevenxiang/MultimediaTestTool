@@ -9,13 +9,14 @@ import org.w3c.dom.Element;
 public class CellData {
 
     public static final int Playback_Test_Id = 0;
-    public static final int Recording_Test_Id = Playback_Test_Id + 1;;
-    public static final int VoiceCall_Test_Id = Recording_Test_Id + 1;
-    public static final int VoipCall_Test_Id = VoiceCall_Test_Id + 1;
-    public static final int Numbers = VoipCall_Test_Id +1;
+    public static final int Recording_Test_Id = 1;
+    public static final int VoiceCall_Test_Id = 2;
+    public static final int VoipCall_Test_Id = 3;
+    public static final int Video_Test_Id = 4;
+    public static final int Numbers = Video_Test_Id +1;
 
 
-    public static final String testItems[] = {"Playback", "Recording", "VoiceCall", "VoipCall"};
+    public static final String testItems[] = {"Playback", "Recording", "VoiceCall", "VoipCall", "VideoPlayback"};
 
     private Element mElement;
     private String mId;
@@ -43,6 +44,9 @@ public class CellData {
 
             case "4":
                 subItems = new String[]{"Normal_Call", "Speaker_Call", "Headset_Call", "BT_Call"};
+                break;
+            case "5":
+                subItems = new String[]{"Video_Playback"};
                 break;
 
         }
