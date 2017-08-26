@@ -18,5 +18,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/commitBtn"
         android:text="@string/Commit"
+        android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/video_list"/>
 </android.support.constraint.ConstraintLayout>
