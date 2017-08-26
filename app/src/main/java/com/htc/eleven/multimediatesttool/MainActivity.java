@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.VideoTestDetail:
                     intent.putExtra(KEY, CellData.testItems[CellData.Video_Test_Id]);
                     break;
+                case R.id.VideoRecordingDetail:
+                    intent.putExtra(KEY, CellData.testItems[CellData.Video_Recording_Test_Id]);
+                    break;
 
             }
 
@@ -79,16 +82,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Log.i(TAG, "we have already request permissions.");
 
-        findViewById(R.id.PlaybackDetail).setOnClickListener(new DetailButtonClickListener());
-        findViewById(R.id.RecordingDetail).setOnClickListener(new DetailButtonClickListener());
-        findViewById(R.id.VoiceCallDetail).setOnClickListener(new DetailButtonClickListener());
-        findViewById(R.id.VoipCallDetail).setOnClickListener(new DetailButtonClickListener());
-        findViewById(R.id.VideoTestDetail).setOnClickListener(new DetailButtonClickListener());
+        DetailButtonClickListener listener = new DetailButtonClickListener();
+
+        findViewById(R.id.PlaybackDetail).setOnClickListener(listener);
+        findViewById(R.id.RecordingDetail).setOnClickListener(listener);
+        findViewById(R.id.VoiceCallDetail).setOnClickListener(listener);
+        findViewById(R.id.VoipCallDetail).setOnClickListener(listener);
+        findViewById(R.id.VideoTestDetail).setOnClickListener(listener);
+        findViewById(R.id.VideoRecordingDetail).setOnClickListener(listener);
+
         findViewById(R.id.Playback_TestTitle).setOnClickListener(this);
         findViewById(R.id.RecordingTestTitle).setOnClickListener(this);
         findViewById(R.id.VoiceCallTitle).setOnClickListener(this);
         findViewById(R.id.VoipCallTitle).setOnClickListener(this);
         findViewById(R.id.VideoTestTitle).setOnClickListener(this);
+        findViewById(R.id.VideoRecordingTitle).setOnClickListener(this);
 
         /**
          *  add for ndk support.
@@ -141,7 +149,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this,VideoTestActivity.class);
                 startActivity(intent);
                 break;
-
+            case R.id.VideoRecordingTitle:
+                intent = new Intent(MainActivity.this,VideoRecordingActivity.class);
+                startActivity(intent);
+                break;
 //            case R.id.ndk_tv:
 //                intent = new Intent(MainActivity.this,NDKDemoActivity.class);
 //                startActivity(intent);

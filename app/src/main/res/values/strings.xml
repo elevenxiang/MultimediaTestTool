@@ -38,4 +38,7 @@
     <string name="video_test_message">Vdieo Playback ok ?</string>
     <string name="video_yes">Yes</string>
     <string name="video_no">No</string>
+
+    <string name="video_recording_title">Video Recording test</string>
+
 </resources>

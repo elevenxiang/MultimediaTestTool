@@ -13,10 +13,11 @@ public class CellData {
     public static final int VoiceCall_Test_Id = 2;
     public static final int VoipCall_Test_Id = 3;
     public static final int Video_Test_Id = 4;
-    public static final int Numbers = Video_Test_Id +1;
+    public static final int Video_Recording_Test_Id = 5;
+    public static final int Numbers = Video_Recording_Test_Id +1;
 
 
-    public static final String testItems[] = {"Playback", "Recording", "VoiceCall", "VoipCall", "VideoPlayback"};
+    public static final String testItems[] = {"Playback", "Recording", "VoiceCall", "VoipCall", "VideoPlayback", "Camcorder"};
 
     private Element mElement;
     private String mId;
@@ -47,6 +48,9 @@ public class CellData {
                 break;
             case "5":
                 subItems = new String[]{"Video_Playback"};
+                break;
+            case "6":
+                subItems = new String[]{"Camcorder"};
                 break;
 
         }

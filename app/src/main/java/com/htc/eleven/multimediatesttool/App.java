@@ -11,10 +11,14 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -137,7 +141,9 @@ public class App extends Application {
         super.onTerminate();
 
         Log.i(TAG, "onTerminate()");
-        restoreToFile();
+
+        if(mFileLoaded)
+            restoreToFile();
     }
 
     /**
@@ -145,11 +151,30 @@ public class App extends Application {
      * */
     private void copyResultFileToExternalStorage(InputStream assertFile, FileOutputStream outputStream) {
 
-        byte[] b = new byte[1024];
+        /**
+         * stupid method to use byte to handle string text data !!!
+         * */
+//        byte[] b = new byte[2048];
+//        try {
+//            while(assertFile.read(b) !=-1){
+//                outputStream.write(b, 0, b.length);
+//                System.out.println("==================" + b.toString());
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
         try {
-            while(assertFile.read(b) !=-1){
-                outputStream.write(b, 0, b.length);
-            }
+            InputStreamReader inputStreamReader = new InputStreamReader(assertFile);
+            char[] data = new char[assertFile.available()];
+            inputStreamReader.read(data);
+            inputStreamReader.close();
+
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
+            outputStreamWriter.write(data);
+            outputStreamWriter.flush();
+            outputStreamWriter.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -169,8 +194,8 @@ public class App extends Application {
                     return false;
                 } else {
                     Log.i(TAG, "Create file: "+file.getAbsolutePath()+" Successfully !");
-                    Toast.makeText(getApplicationContext(), "创建测试结果文件成功 !", Toast.LENGTH_LONG).show();
                     InputStream assertFile = getAssets().open(testResultFile);
+                    Toast.makeText(getApplicationContext(), "创建测试结果文件成功 ! " + assertFile.toString(), Toast.LENGTH_LONG).show();
                     FileOutputStream outputStream = new FileOutputStream(file);
 
                     copyResultFileToExternalStorage(assertFile,outputStream);
@@ -226,6 +251,7 @@ public class App extends Application {
 
     public void deleteFile() {
         file.delete();
+        mData.clear();
         mFileLoaded = false;
     }
 }

@@ -29,5 +29,7 @@
     <Item id="5" class="Video">
         <Video_Playback>Failed</Video_Playback>
     </Item>
-
+    <Item id="6" class="Camcorder">
+        <Camcorder>Failed</Camcorder>
+    </Item>
 </Results>
