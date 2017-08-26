@@ -122,6 +122,11 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         /**
+         * i==1, means the first line, which was used to prompt user to pull down to refresh, no need to add onClick listener.
+         * */
+        if(i==1) return;
+
+        /**
          * i is beginning with 1, so we need i-1 to access array data, or it will be over flow.
          * here, substring(3), we use it to filter the id and "." to get full and right file path.
          * */
