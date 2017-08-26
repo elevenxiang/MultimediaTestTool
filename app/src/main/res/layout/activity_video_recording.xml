@@ -6,4 +6,41 @@
     android:layout_height="match_parent"
     tools:context="com.htc.eleven.multimediatesttool.VideoRecordingActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/camcorder_button_layout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/startCaptureBtn"
+            android:text="@string/startVideoRecording"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/startPlayBtn"
+            android:textAllCaps="false"
+            android:text="@string/startVideoPlayback"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/commitBtn"
+        android:text="@string/Commit"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/camcorder_button_layout"
+        android:layout_marginTop="100dp"/>
+
 </android.support.constraint.ConstraintLayout>

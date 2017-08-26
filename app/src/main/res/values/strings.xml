@@ -40,5 +40,9 @@
     <string name="video_no">No</string>
 
     <string name="video_recording_title">Video Recording test</string>
+    <string name="startVideoRecording">Start Camcorder</string>
+    <string name="startVideoPlayback">Play VideoRecording</string>
+    <string name="video_recording_test_dialog">VideoRecording Confirm</string>
+    <string name="video_recording_test_message">Camcorder ok ?</string>
 
 </resources>
