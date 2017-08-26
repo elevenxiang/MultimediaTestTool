@@ -45,7 +45,8 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
     private Button commitBtn;
     private void refresh() {
 
-        Cursor list = getContentResolver().query(mVideoUri,mColumns,"duration>10000", null, null);
+//        Cursor list = getContentResolver().query(mVideoUri,mColumns,"duration>10000", null, null);
+        Cursor list = getContentResolver().query(mVideoUri,mColumns,null, null, null);
 
         mData.add("======== Pull to Refresh ! =======");
         if(list.moveToFirst()) {
@@ -105,7 +106,10 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
                         mAdapter.notifyDataSetChanged();
                         video_list.onRefreshComplete();
 
-                        Toast.makeText(VideoTestActivity.this,"Scan and Refresh Completed!", Toast.LENGTH_SHORT).show();
+                        if(mData.size() > 2)
+                            Toast.makeText(VideoTestActivity.this,"Scan and Refresh Completed!", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(VideoTestActivity.this,"不好意思，没搜到任何视频!", Toast.LENGTH_SHORT).show();
                     }
                 }.execute();
             }
