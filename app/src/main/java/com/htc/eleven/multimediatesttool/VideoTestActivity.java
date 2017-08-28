@@ -3,6 +3,7 @@ package com.htc.eleven.multimediatesttool;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -21,6 +23,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import org.w3c.dom.Element;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -121,9 +124,26 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
 
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(VideoTestActivity.this,"==================" + view.toString() + "===" + i, Toast.LENGTH_LONG).show();
+//                Toast.makeText(VideoTestActivity.this,"==================" + view.toString() + "===" + mData.get(i-1).substring(3), Toast.LENGTH_LONG).show();
 
+                String filePath = mData.get(i-1).substring(3);
+                System.out.println("delete file: " + filePath);
 
+                /**
+                 * delete file first, then we need remove it from MediaStore.Video database.
+                 * */
+                new File(filePath).delete();
+
+                /**
+                 * Notify MediaStore database to delete data record also, or it will still show it in list, but can't play it.
+                 * we trigger one scan to delete file.
+                 * Intent.ACTION_MEDIA_MOUNTED was forbidden to use for none system application.
+                 * */
+                MediaScannerConnection.scanFile(VideoTestActivity.this,new String[]{filePath},null,null);
+
+                /**
+                 * refresh List View.
+                 * */
                 video_list.setRefreshing();
                 return true;
             }
