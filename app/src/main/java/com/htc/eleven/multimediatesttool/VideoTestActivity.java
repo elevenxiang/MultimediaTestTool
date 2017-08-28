@@ -116,6 +116,19 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
         });
 
         video_list.setOnItemClickListener(this);
+
+        video_list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(VideoTestActivity.this,"==================" + view.toString() + "===" + i, Toast.LENGTH_LONG).show();
+
+
+                video_list.setRefreshing();
+                return true;
+            }
+        });
+
     }
 
     @Override
@@ -186,4 +199,5 @@ public class VideoTestActivity extends AppCompatActivity implements AdapterView.
                 break;
         }
     }
+
 }
