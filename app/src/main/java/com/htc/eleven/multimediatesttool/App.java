@@ -251,7 +251,7 @@ public class App extends Application {
 
     public void deleteFile() {
         file.delete();
-        mData.clear();
+//        mData.clear();
         mFileLoaded = false;
     }
 }

@@ -2,6 +2,7 @@ package com.htc.eleven.multimediatesttool;
 
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -151,7 +152,10 @@ public class PlaybackTestActivity extends AppCompatActivity implements View.OnCl
 //            player.setDataSource(path);
 
             // use AssertFileDescriptor to setDataSource().
-            player.setDataSource(mFd);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                player.setDataSource(mFd);
+            } else
+                player.setDataSource(mFd.getFileDescriptor());
         } catch (IOException e) {
             e.printStackTrace();
         }
