@@ -50,8 +50,9 @@ public class VoiceCallTestActivity extends AppCompatActivity implements View.OnC
     }
 
     private void dialOut() {
-        Uri uri = Uri.parse("tel:"+phoneNumber.getText());
+        Uri uri = Uri.parse("tel:" + phoneNumber.getText());
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.setAction(Intent.ACTION_CALL);
         startActivity(intent);
 
     }
